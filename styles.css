@@ -16,7 +16,7 @@ body {
     color: black; /* Set default text color to black */
     background-attachment: fixed;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
 }
