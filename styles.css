@@ -743,3 +743,44 @@ h3 {
     }
 }
 
+/* Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%; /* Make the sidebar full-width */
+        height: auto; /* Allow dynamic height */
+        position: relative; /* No fixed positioning */
+    }
+    .navbar {
+        flex-direction: column; /* Stack navbar items vertically */
+    }
+    .card {
+        width: 90%; /* Adjust card width to fit smaller screens */
+        margin: 10px auto; /* Center cards with some spacing */
+    }
+    .overlay-text {
+        font-size: 1.5rem; /* Reduce font size */
+    }
+    .profile-card {
+        flex-direction: column; /* Stack content vertically */
+        width: 100%; /* Full width */
+        margin-bottom: 20px;
+    }
+}
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80%; /* Make the sidebar slightly narrower */
+    }
+    .navbar li {
+        margin: 10px 0; /* Increase spacing for navbar items */
+    }
+    .card {
+        width: 80%; /* Adjust card width */
+    }
+    .profile-card {
+        height: auto; /* Allow dynamic height */
+    }
+}
+
+
