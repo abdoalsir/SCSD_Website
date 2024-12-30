@@ -13,7 +13,7 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: black; /* Set default text color to white */
+    color: black; /* Set default text color to black */
     background-attachment: fixed;
     overflow-x: hidden; /* Prevent horizontal scrolling */
     min-height: 100vh;
@@ -450,9 +450,10 @@ h3 {
     flex-direction: column;
     justify-content: space-between; /* Distribute content evenly */
     align-items: center; /* Center horizontally */
-    width: 300px; /* Fixed width for all cards */
+    width: 100%; /* Full width for all cards */
+    max-width: 300px; /* Max width for larger screens */
     height: 600px; /* Fixed height for all cards */
-    margin: 20px;
+    margin: 20px auto; /* Center cards */
     background: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -477,7 +478,7 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: center; /* Center text */
     padding: 20px;
     gap: 8px; /* Space between text elements */
     flex-grow: 1; /* Ensures the body stretches to fill space */
@@ -611,7 +612,8 @@ h3 {
 
 .card {
     position: relative;
-    width: 15em; /* Adjusted width */
+    width: 100%; /* Full width for cards */
+    max-width: 15em; /* Adjusted max width */
     height: 20em; /* Adjusted height */
     box-shadow: 0px 4px 20px rgba(0,0,0,0.2); /* Enhanced shadow */
     cursor: pointer;
@@ -674,10 +676,6 @@ h3 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .mission-card, .about-us-card {
-        margin-bottom: 20px; /* Space between cards on smaller screens */
-    }
-
     .leadership-card {
         width: 100%; /* Full width for cards on mobile */
         margin-bottom: 20px; /* Space between cards */
@@ -717,12 +715,9 @@ h3 {
         position: relative; /* Ensure it's placed normally in mobile */
         bottom: unset; /* Remove the fixed position */
     }
-}
 
-@media (max-width: 480px) {
-    .profile-card {
-        width: 100%; /* Ensure cards use full width */
-        margin-bottom: 20px; /* Space between cards */
+    .mission-card, .about-us-card {
+        margin-bottom: 20px; /* Space between cards on smaller screens */
     }
 
     .card {
@@ -736,6 +731,13 @@ h3 {
 
     .card .text {
         font-size: 0.8em; /* Adjust font size for description */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        width: 100%; /* Ensure cards use full width */
+        margin-bottom: 20px; /* Space between cards */
     }
 }
 
