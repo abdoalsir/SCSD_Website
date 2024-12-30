@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication and Advocacy Department</title>
+    <link rel="website icon" type="png" href="C:\Users\Abdulrhman Alsir\Desktop\SCSD Website\Assets\Logo">
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      .section h2{
+        font-weight: bold;
+      }
+        /* Card Flip Styles */
+        .strategic-area-containter {
+          display: flex; /* Use flexbox to align cards in a row */
+          justify-content: center; /* Center the items horizontally */
+          gap: 15px; /* Space between the cards */
+          overflow: hidden; /* Prevent overflow */
+          flex-wrap: wrap; /* Allow items to wrap to the next line */
+      }
+
+      .card-flip {
+          flex: 1 1 600px; /* Allow cards to grow and shrink, with a base width of 250px */
+          max-width: 800px; /* Set a maximum width for the cards */
+          height: 200px; /* Allow height to adjust based on content */
+          perspective: 1000px;
+      }
+
+      .card-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .card-flip:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border: 1px solid #dee2e6; /* Add border */
+        border-radius: 0.5rem; /* Rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px; /* Add padding for content */
+        transition: background-color 0.3s; /* Smooth background transition */
+      }
+
+      .card-front {
+        background: linear-gradient(#2AB1AA, #0A71B6);
+      }
+
+      .card-back {
+        background: white; /* Blue background */
+        color: black;
+        transform: rotateY(180deg);
+      }
+
+    /* Project Card Container */
+    .project-card-container {
+      display: flex; /* Use flexbox to align cards in a row */
+      justify-content: center; /* Center the items horizontally */
+      gap: 15px; /* Space between the cards */
+      overflow: hidden; /* Prevent overflow */
+    }
+
+    /* Project Card Styles */
+  .project-card {
+      position: relative;
+      flex: 0 0 120px; /* Fixed width for each card */
+      height: 500px; /* Increased height for the card */
+      border: 3.5px solid #0A71B6; /* Add border */
+      border-radius: 10px; /* Rounded corners */
+      overflow: hidden; /* Hide overflow */
+      transition: flex 0.5s ease; /* Smooth transition for hover effect */
+  }
+
+  /* Project Card Hover Effect */
+  .project-card:hover {
+      flex: 0 0 300px; /* Expand the width on hover */
+  }
+
+  /* Project Image */
+  .project-image {
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-size: cover;
+      transition: transform 0.5s ease; /* Smooth transition for image */
+  }
+
+  /* Show project info on hover */
+  .project-card:hover .project-image {
+      transform: scale(1.1); /* Slightly scale the image on hover */
+  }
+
+  .project-info {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex; /* Use flexbox to align text */
+      justify-content: space-between; /* Space text to the sides */
+      transform: translateY(-50%); /* Center vertically */
+      opacity: 0; /* Initially hide the text */
+      transition: opacity 0.5s ease; /* Smooth transition for text */
+  }
+
+  /* Show project info on hover */
+  .project-card:hover .project-info {
+      opacity: 1; /* Show the text on hover */
+  }
+      /* Hover Effect for Strategic Area Cards */
+      .card-flip:hover .card-front,
+      .card-flip:hover .card-back {
+        background-color: #e9ecef; /* Change background on hover */
+      }
+    .profile-designation{
+      font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+<!-- Sidebar Navigation -->
+<div id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="main.html" class="nav-link">Home</a></li>
+      <li><a href="leadership.html" class="nav-link">Our Leadership</a></li>
+      <li><a href="about-us.html" class="nav-link">About Us</a></li>
+      <li><a href="events.html" class="nav-link">Opportunities & Events</a></li>
+      <li><a href="open-positions.html" class="nav-link">Join The SCSD</a></li>
+      <li><a href="cad.html#contact" class="nav-link">Contact Us</a></li>
+    </ul>
+
+    <!-- Social Media Links -->
+    <div class="social-media">
+        <ul>
+            <li><a href="https://www.facebook.com/scsdofficial?mibextid=JRoKGi" target="_blank" class="social-icon"><i
+                    class="fab fa-facebook"></i></a></li>
+            <li><a href="https://x.com/scsdglobal" target="_blank" class="social-icon"><i
+                    class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/scsdglobal?igsh=MWt1NWdwdTNkbWsycg==" target="_blank"
+                   class="social-icon"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/scsdofficial/" target="_blank" class="social-icon"><i
+                    class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://youtube.com/@scsdglobal?si=FtrD8aQk1BRfWKng" target="_blank" class="social-icon"><i
+                    class="fab fa-youtube"></i></a></li>
+            <li><a href="https://t.me/scsdofficial" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
+            </li>
+            <li><a href="https://whatsapp.com/channel/0029ValSKPwGE56gYq9icF0y" target="_blank" class="social-icon"><i
+                    class="fab fa-whatsapp"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Main Content Area -->
+<div id="content" class="content">
+    <!-- Header with Logo and Navigation Bar -->
+    <header>
+        <div class="d-flex align-items-center">
+            <button id="toggleSidebar" class="btn btn-link text-white">☰</button> <!-- Sidebar toggle button -->
+            <img src="C:\Users\Abdulrhman Alsir\Desktop\SCSD Website\Assets\Logo1.png" class="logo" alt="Logo">
+            <h2 class="title">SUDANESE CONSORTIUM FOR SURGICAL DEVELOPMENT</h2>
+        </div>
+        <nav>
+            <ul class="navbar navbar-expand-lg navbar-light">
+              <li class="nav-item"><a class="nav-link active" href="main.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="leadership.html">Our Leadership</a></li>
+              <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="events.html">Opportunities & Events</a></li>
+              <li class="nav-item"><a class="nav-link" href="open-positions.html">Join The SCSD</a></li>
+              <li class="nav-item"><a class="nav-link" href="cad.html#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="department-intro" class="section p-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Welcome to the Communication and Advocacy Department</h2>
+            <h5 class="text-center mb-4">The Communication and Advocacy Department aims To advocate for an efficient
+              Sudan surgical system by establishing and maintaining effective stakeholders’ communication and technically
+              supporting the SCSD’s departments in achieving their aim.</h5>
+            <div class="row">
+            </div>
+        </div>
+    </section>
+
+    <section id="strategic-areas" class="section p-5 bg-light">
+      <div class="container">
+          <h2 class="text-center mb-4">Strategic Areas</h2>
+          <div class="row justify-content-center">
+              <!-- Strategic area cards -->
+              <div class="col-md-4 mb-4">
+                  <div class="card-flip">
+                      <div class="card-inner">
+                          <div class="card-front">
+                              <h5 class="card-title text-center">SCSD's Visual Identity(Brand)</h5>
+                          </div>
+                          <div class="card-back">
+                              <p class="text-center" style="font-size:12px;">We prioritize effective communication, public relations, and branding
+                                to engage stakeholders, promote SCSD’s vision, and strengthen partnerships. These efforts boost visibility, build a
+                                positive image, and amplify the impact of our work in enhancing Sudan’s surgical system.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="card-flip">
+                      <div class="card-inner">
+                          <div class="card-front">
+                              <h5 class="card-title text-center">Sudan - NSOAP</h5>
+                          </div>
+                          <div class="card-back">
+                              <p class="text-center" style="font-size:12px;">Our NSOAP advocacy project promotes the adoption and implementation
+                                 of the National Surgical, Obstetric, and Anesthesia Plan in Sudan. By working with policymakers, healthcare
+                                 providers, and stakeholders, we aim to decentralize surgical services, enhance training, and improve infrastructure
+                                 for equitable access to quality surgical care.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card-flip">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h5 class="card-title text-center">Community Engagement and Mobilisation</h5>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-center" style="font-size:12px;">We organize awareness campaigns to educate the public about national
+                              surgical issues, promote preventive measures, and encourage proactive healthcare behaviors. These efforts aim to
+                              create an informed and engaged community that supports improvements in Sudan's surgical system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </section>
+
+    <<section id="team" class="section p-5">
+      <div class="container">
+          <h2 class="text-center mb-4">Our Team</h2>
+          <div class="row">
+              <!-- Director and Deputy Director in the first row -->
+              <div class="col-md-6 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="C:\Users\Abdulrhman Alsir\Desktop\SCSD Website\Assets\CAD\Elaf Mohamed.jpg" alt="Elaf Mohamed">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Elaf Mohamed</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Director</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="C:\Users\Abdulrhman Alsir\Desktop\SCSD Website\Assets\CAD\Malaz Abusufian.jpg" alt="Malaz Abusufian">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Malaz Abusufian</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Deputy Director</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <!-- Remaining team members in rows of three -->
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member3.jpg" alt="Amna Mutasim">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Amna Mutasim</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">NSOAP Project Coordinator</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member4.jpg" alt="Leena Elsadig">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Leena Elsadig</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member5.jpg" alt="Shouaa Eldein Adam">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Shouaa Eldein Adam</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member6.jpg" alt="Alaa Abusufyan">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Alaa Abusufyan</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member7.jpg" alt="Shema Abdelhafiz">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Shema Abdelhafiz</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member8.jpg" alt="Khalid Mohamed">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Khalid Mohamed</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member9.jpg" alt="Amany Amin">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Amany Amin</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member10.jpg" alt="Tasneem Babiker">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Tasneem Babiker</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="profile-box">
+                      <div class="profile-card">
+                          <div class="profile-header jkit-team-img">
+                              <img src="Assets/member11.jpg" alt="Doha Mohammed">
+                          </div>
+                          <div class="profile-body">
+                              <h2 class="profile-title">Doha Mohammed</h2>
+                          </div>
+                          <div class="profile-footer">
+                              <p class="profile-designation">Department Officer</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="profile-box">
+                    <div class="profile-card">
+                        <div class="profile-header jkit-team-img">
+                            <img src="Assets/member11.jpg" alt="Rwnag Alkordy">
+                        </div>
+                        <div class="profile-body">
+                            <h2 class="profile-title">Rwnag Alkordy</h2>
+                        </div>
+                        <div class="profile-footer">
+                            <p class="profile-designation">Department Officer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="profile-box">
+                  <div class="profile-card">
+                      <div class="profile-header jkit-team-img">
+                          <img src="C:\Users\Abdulrhman Alsir\Desktop\SCSD Website\Assets\member11.jpg" alt="Abdulrhman Sirelkhatim">
+                      </div>
+                      <div class="profile-body">
+                          <h2 class="profile-title">Abdulrhman Sirelkhatim</h2>
+                      </div>
+                      <div class="profile-footer">
+                          <p class="profile-designation">Department Officer</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </div>
+  </section>
+
+<section id="projects" class="section p-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Projects</h2>
+        <div class="project-card-container">
+            <!-- Project Cards -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image1.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">NSOAP Advocacy Project</h3>
+                        <p class="project-description">Our NSOAP advocacy project promotes the adoption and implementation
+                            of the National Surgical, Obstetric, and Anesthesia Plan in Sudan. By working with policymakers, healthcare
+                            providers, and stakeholders, we aim to decentralize surgical services, enhance training, and improve infrastructure
+                            for equitable access to quality surgical care</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image2.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Prostate Cancer Awareness Campaign</h3>
+                        <p class="project-description">Raises awareness about prostate cancer, its prevention, and early detection, aiming to
+                            reduce the disease's impact through education and community outreach.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image3.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Breast Cancer Awareness Campaign</h3>
+                        <p class="project-description">Focuses on increasing awareness about breast cancer, promoting early screening, and
+                            educating the public on prevention and treatment options.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image4.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Burn Awareness Campaign</h3>
+                        <p class="project-description">Educates the community on burn prevention, first aid, and the importance of proper care
+                            to reduce injuries and improve recovery outcomes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image5.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Diabetic Foot Awareness Campaign</h3>
+                        <p class="project-description">Promotes healthy eating habits for diabetes prevention and management, educating the
+                            public on balanced diets and the role of nutrition in managing diabetes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="section p-5 bg-light">
+    <h2 class="text-center mb-4">Contact The CAD Department</h2>
+    <div class="container">
+        <form action="send_email.php" method="post" class="contact-form">
+            <div class="row">
+                <!-- Name Input -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- Email Input -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Subject Input -->
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input id="subject" name="subject" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Input for Department Email -->
+            <input type="hidden" name="department_email" value="communication@scsdglobal.org">
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Include your existing footer content here -->
+<footer class="footer p-4 bg-dark text-white">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Footer Links on the Left -->
+        <div class="footer-links">
+            <ul class="list-unstyled d-flex mb-0">
+                <li><a href="about-us.html" class="text-white mx-2">About Us</a></li>
+                <li><a href="initiatives.html" class="text-white mx-2">Our Initiatives</a></li>
+                <li><a href="#privacy-policy" class="text-white mx-2">Privacy Policy</a></li>
+                <li><a href="#terms-conditions" class="text-white mx-2">Terms and Conditions</a></li>
+                <li><a href="open-positions.html" class="text-white mx-2">Get Involved</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media Icons on the Right -->
+        <div class="social-media">
+            <ul class="list-unstyled d-flex mb-0">
+                <li><a href="https://www.facebook.com/scsdofficial?mibextid=JRoKGi" target="_blank" class="social-icon"><i
+                        class="fab fa-facebook"></i></a></li>
+                <li><a href="https://x.com/scsdglobal" target="_blank" class="social-icon"><i
+                        class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/scsdglobal?igsh=MWt1NWdwdTNkbWsycg==" target="_blank"
+                       class="social-icon"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/scsdofficial/" target="_blank" class="social-icon"><i
+                        class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://youtube.com/@scsdglobal?si=FtrD8aQk1BRfWKng" target="_blank" class="social-icon"><i
+                        class="fab fa-youtube"></i></a></li>
+                <li><a href="https://t.me/scsdofficial" target="_blank" class="social-icon"><i
+                        class="fab fa-telegram"></i></a></li>
+                <li><a href="https://whatsapp.com/channel/0029ValSKPwGE56gYq9icF0y" target="_blank" class="social-icon"><i
+                        class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Copyright Text -->
+    <div class="text-center mt-3">
+        <p class="mb-0">© 2025 Sudanese Consortium for Surgical Development. All rights reserved.</p>
+    </div>
+</footer>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ldWLWgrCRj/xIzpP5e+fMwo6KOBk5KxQzW+xBd2lYGUPtN/f5Bunw8u47HP3bYFX"
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>

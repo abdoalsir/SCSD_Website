@@ -1,0 +1,745 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin-bottom: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black; /* Set default text color to white */
+    background-attachment: fixed;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    background-image: url('xx'); /* Replace with your actual image URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh; /* Ensures full-screen height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.section h2, h3{
+    font-weight: bold;
+}
+/* Disappearing Text */
+.disappearing-text {
+    opacity: 1;
+    transition: opacity 3s ease-out; /* Make it fade out over 2 seconds */
+}
+
+/* Sidebar Style */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(#2ab1aa, #0A71B6);
+    padding-top: 20px;
+    padding-bottom: 20px; /* Ensure some space at the bottom */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    transition: left 0.3s ease-in-out; /* Smooth transition for opening and closing */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure space between content and social media */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-bottom: 20px; /* Space before the social media icons */
+    background: none;
+    color: #fff; /* Adjust to match sidebar background */
+    transition: color 0.3s;
+}
+
+/* Sidebar Social Media Section */
+.sidebar .social-media ul {
+    padding: 0;
+    margin: 0 10px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Ensure icons wrap instead of overflowing */
+    gap: 10px; /* Space between icons */
+    justify-content: center; /* Center the icons in the sidebar */
+}
+
+.sidebar .social-media ul li a {
+    font-size: 10px; /* Adjust icon size for sidebar */
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .social-media ul li a:hover {
+    transform: scale(1.1); /* Slightly scale up the icon */
+    color: #0A71B6; /* Change hover color */
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Sidebar Link Styling */
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #083f64; /* Sidebar link hover color */
+    color: #fff; /* Text color on hover */
+}
+
+/* Main Content Style */
+.content {
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out; /* Transition for content shift */
+    padding-bottom: 0px; /* To prevent bottom content being cut off */
+    flex: 1 0 auto; /* Allow content to grow and shrink */
+    flex-grow: 1; /* Ensure content takes up the available space */
+}
+
+header {
+    background: linear-gradient(#2ab1aa, #0A71B6);
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.title{
+    font-size: 22px;
+    padding-right: 30px;
+    font-family: 'MyFont';
+}
+
+header .logo {
+    max-width: 100px;
+    height: auto;
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+header h2 {
+    font-size: 2em;
+}
+
+.image1-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+.image1-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire container */
+    position: absolute; /* Position the image absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1; /* Ensure the image is behind the text */
+    padding-top: 10px;
+    filter: blur(8px);
+}
+
+.main {
+    position: relative; /* Position relative to the container */
+    z-index: 2; /* Ensure the text is above the image */
+    text-align: center; /* Center the text */
+    top: 20%; /* Position it towards the upper middle */
+}
+
+/* Add this to your existing CSS */
+
+/* Fade-in effect for text */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in; /* Smooth transition for opacity */
+}
+
+.fade-in.visible {
+    opacity: 1; /* Fully visible */
+}
+
+.overlay-text {
+    color: white;
+    font-family: MyFont;
+    font-size: 48px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.overlay-text1 {
+    color: white;
+    font-family: MyFont;
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px; /* Space between the two texts */
+    color: white
+}
+
+.profile-box {
+    border: 1px solid #dee2e6; /* Border for profile box*/
+    border-radius: 0.5rem; /* Rounded corners*/
+    overflow: hidden; /* Prevent overflow*/
+    transition: transform 0.3s; /* Smooth hover effect*/
+}
+
+.profile-box:hover {
+    transform: scale(1.05); /* Scale effect on hover*/
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Full height */
+}
+
+.profile-header {
+    position: relative;
+    width: 100%; /* Ensure full width */
+    height: 200px; /* Set a fixed height for the image container */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.profile-header img {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height to fill the container */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    object-position: top; /* Focus on the top of the image */
+}
+
+.profile-body {
+    padding: 1rem; /* Padding for body */
+    flex-grow: 1; /* Allow body to grow */
+}
+
+.profile-title {
+    font-size: 1.5rem; /* Title size */
+    margin: 0.5rem 0; /* Margin for title */
+}
+
+.profile-designation {
+    font-size: 1rem; /* Designation size */
+    color: #6c757d; /* Gray color */
+}
+
+.profile-footer {
+    padding: 1rem; /* Padding for footer */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.social-list {
+    list-style: none; /* Remove list style */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Flex display for icons */
+    justify-content: center; /* Center social icons */
+}
+
+.social-icon {
+    margin-right: 1rem; /* Space between icons */
+}
+
+.btn {
+    background-color: #007bff; /* Button color */
+    color: white; /* Button text color */
+    padding: 0.5rem 1rem; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 0.25rem; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    margin-top: 0.5rem; /* Space above the button */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+  .border-bottom {
+    border-bottom: 1px solid #dee2e6; /* Bottom border */
+  }
+
+  .left {
+    margin-left: -30; /* Reset left margin */
+  }
+
+.about-us-card {
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    text-align: left; /* Center text */
+    padding: 1rem; /* Padding for content */
+}
+
+.row {
+    margin-top: 20px; /* Space between rows */
+}
+
+h3 {
+    margin-top: 20px; /* Space above the values section */
+    text-align: center;
+}
+
+.card.bg-gradient {
+    background: linear-gradient(#2ab1aa, #0A71B6);
+    color: white; /* Text color for better contrast */
+}
+
+/* Social Media Styling for Footer */
+.social-media {
+    text-align: center;
+    padding: 10px 0; /* Space around the icons */
+    color: white
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+}
+
+.social-media ul li {
+    display: inline-block;
+    margin: 0px;
+}
+
+.social-media ul li a {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px; /* Ensures the icon has space around it */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for social media icons in footer */
+.social-media ul li a:hover {
+    transform: scale(1.1); /* Slightly scale up the icon */
+    color: #ff6347; /* Change the color on hover */
+    background-color: transparent; /* Remove background color */
+    border: none; /* Remove any border */
+    outline: none; /* Remove any outline */
+}
+
+.social-media ul li a i {
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for icon itself in footer */
+.social-media ul li a:hover i {
+    transform: scale(1.1); /* Slightly scale up the icon */
+    color: #0A71B6; /* Change the color on hover */
+}
+
+/* Navbar Style */
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #0A71B6;
+}
+
+/* Section Style */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f8f9fa;
+}
+
+.footer {
+    background: linear-gradient(#0A71B6,#2ab1aa) !important;
+    color: #2ab1aa;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 0;
+    overflow-x: hidden;
+    margin-top: auto;
+    flex-shrink: 0;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.social-icon i {
+    font-size: 1.5rem;
+}
+
+.footer-links ul {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links li,
+.social-media li {
+    list-style: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leadership-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute content evenly */
+    align-items: center; /* Center horizontally */
+    width: 300px; /* Fixed width for all cards */
+    height: 600px; /* Fixed height for all cards */
+    margin: 20px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+.profile-header {
+    width: 100%;
+    height: 400px; /* Uniform height for images */
+    overflow: hidden;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container */
+}
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    gap: 8px; /* Space between text elements */
+    flex-grow: 1; /* Ensures the body stretches to fill space */
+    width: 100%;
+}
+
+.profile-body-horizontal {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between the director and department names */
+}
+
+.profile-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    white-space: normal; /* Allows text to wrap */
+    overflow: hidden; /* Prevents overflow outside the card */
+    word-break: break-word; /* Breaks long words if needed */
+}
+
+.profile-designation {
+    color: #666;
+    font-size: 0.7rem;
+    white-space: normal; /* Allows text to wrap */
+    overflow: hidden; /* Prevents overflow outside the card */
+    word-break: break-word; /* Breaks long words if needed */
+    text-align: center; /* Keeps text centered */
+    line-height: 1.4; /* Increases readability for wrapped text */
+}
+
+
+.profile-footer {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+.social-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.border-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #007bff;
+}
+
+/* Mission Card Styles */
+.mission-card {
+    background-color: #f8f9fa; /* Light background color */
+    border: 1px solid #dee2e6; /* Border color */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s; /* Smooth hover effect */
+    padding: 20px; /* Padding inside the card */
+    height: 300px; /* Fixed height for uniformity */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Space out children */
+    text-align: justify; /* Add this line */
+}
+
+.mission-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* About Us Card Styles */
+.about-us-card {
+    background-color: #f8f9fa; /* White background */
+    border: 1px solid #dee2e6; /* Border color */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s; /* Smooth hover effect */
+    padding: 20px; /* Padding inside the card */
+    height: 300px; /* Fixed height for uniformity */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Space out children */
+    text-align: justify; /* Add this line */
+    font-size: 1rem !important; /* Font size for text */
+}
+
+.about-us-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Event Card Styles */
+.card {
+    border: 1px solid #dee2e6; /* Border color */
+    border-radius: 0.5rem; /* Rounded corners */
+    overflow: hidden; /* Prevent overflow */
+    transition: transform 0.3s; /* Smooth hover effect */
+    height: 300px; /* Fixed height for uniformity */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.card-body {
+    padding: 1rem; /* Padding for card body */
+    text-align: left; /* Center text */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Space out children */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Title size */
+    margin: 0.5rem 0; /* Margin for title */
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem; /* Text size */
+    color: #6c757d; /* Gray color */
+}
+
+.card {
+    position: relative;
+    width: 15em; /* Adjusted width */
+    height: 20em; /* Adjusted height */
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.2); /* Enhanced shadow */
+    cursor: pointer;
+    transition: all 150ms;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    justify-content: space-between; /* Space between elements */
+    background: #fff;
+    padding: 1em; /* Increased padding */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  .card .image {
+    background: rgb(241, 241, 241);
+    width: 100%;
+    height: 60%; /* Adjusted height for image */
+    display: grid;
+    place-items: center;
+    border-radius: 10px; /* Rounded corners for image */
+  }
+
+  .card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for image */
+  }
+
+  .card .title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em; /* Increased font size */
+    font-weight: 600; /* Bold title */
+    color: #333; /* Darker color for better readability */
+    margin: 0.5em 0; /* Margin for spacing */
+  }
+
+  .card .text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em; /* Font size for description */
+    color: #666; /* Lighter color for description */
+    text-align: center; /* Centered text */
+    margin-bottom: 1em; /* Margin for spacing */
+  }
+
+  .apply-button {
+    display: block;
+    text-align: center;
+    background: #00AC7C;
+    color: #fff;
+    padding: 0.5em;
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners for button */
+    transition: all 150ms;
+  }
+
+  .card:hover .apply-button {
+    background: #008f6b; /* Darker shade on hover */
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mission-card, .about-us-card {
+        margin-bottom: 20px; /* Space between cards on smaller screens */
+    }
+}
+
+/* Responsive Design for Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .social-media {
+        position: relative; /* Ensure it's placed normally in mobile */
+        bottom: unset;  /* Remove the fixed position */
+    }
+}
+
+/* Ensure the content doesn't overflow */
+@media (min-width: 769px) {
+    .main {
+        overflow-y: auto; /* Allow scrolling when content overflows */
+    }
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('Fonts/Copperplate.otf') format('truetype'); /* Adjust format as needed */
+    font-weight: lighter;
+    font-style: normal;
+  }
+
+@media (max-width: 768px) {
+    .overlay-text {
+        padding-top: 50px;  /* Less top padding on smaller screens */
+    }
+    .overlay-text h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        height: auto; /* Allow flexible height on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        width: 100%; /* Ensure cards use full width */
+        margin-bottom: 20px;
+    }
+}
+

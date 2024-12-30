@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources and Excellence Management Department</title>
+    <link rel="website icon" type="png" href="C:\Users\Abdulrhman Alsir\Desktop\SCSD Website\Assets\Logo">
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      .section h2{
+        font-weight: bold;
+      }
+        /* Card Flip Styles */
+        .strategic-area-containter {
+          display: flex; /* Use flexbox to align cards in a row */
+          justify-content: center; /* Center the items horizontally */
+          gap: 15px; /* Space between the cards */
+          overflow: hidden; /* Prevent overflow */
+          flex-wrap: wrap; /* Allow items to wrap to the next line */
+      }
+
+      .card-flip {
+          flex: 1 1 600px; /* Allow cards to grow and shrink, with a base width of 250px */
+          max-width: 800px; /* Set a maximum width for the cards */
+          height: 200px; /* Allow height to adjust based on content */
+          perspective: 1000px;
+      }
+
+      .card-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .card-flip:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border: 1px solid #dee2e6; /* Add border */
+        border-radius: 0.5rem; /* Rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px; /* Add padding for content */
+        transition: background-color 0.3s; /* Smooth background transition */
+      }
+
+      .card-front {
+        background: linear-gradient(#2AB1AA, #0A71B6);
+      }
+
+      .card-back {
+        background: white; /* Blue background */
+        color: black;
+        transform: rotateY(180deg);
+      }
+
+    /* Project Card Container */
+    .project-card-container {
+      display: flex; /* Use flexbox to align cards in a row */
+      justify-content: center; /* Center the items horizontally */
+      gap: 15px; /* Space between the cards */
+      overflow: hidden; /* Prevent overflow */
+    }
+
+    /* Project Card Styles */
+  .project-card {
+      position: relative;
+      flex: 0 0 120px; /* Fixed width for each card */
+      height: 500px; /* Increased height for the card */
+      border: 3.5px solid #0A71B6; /* Add border */
+      border-radius: 10px; /* Rounded corners */
+      overflow: hidden; /* Hide overflow */
+      transition: flex 0.5s ease; /* Smooth transition for hover effect */
+  }
+
+  /* Project Card Hover Effect */
+  .project-card:hover {
+      flex: 0 0 300px; /* Expand the width on hover */
+  }
+
+  /* Project Image */
+  .project-image {
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-size: cover;
+      transition: transform 0.5s ease; /* Smooth transition for image */
+  }
+
+  /* Show project info on hover */
+  .project-card:hover .project-image {
+      transform: scale(1.1); /* Slightly scale the image on hover */
+  }
+
+  .project-info {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex; /* Use flexbox to align text */
+      justify-content: space-between; /* Space text to the sides */
+      transform: translateY(-50%); /* Center vertically */
+      opacity: 0; /* Initially hide the text */
+      transition: opacity 0.5s ease; /* Smooth transition for text */
+  }
+
+  /* Show project info on hover */
+  .project-card:hover .project-info {
+      opacity: 1; /* Show the text on hover */
+  }
+      /* Hover Effect for Strategic Area Cards */
+      .card-flip:hover .card-front,
+      .card-flip:hover .card-back {
+        background-color: #e9ecef; /* Change background on hover */
+      }
+    .profile-designation{
+      font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+<!-- Sidebar Navigation -->
+<div id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="main.html" class="nav-link">Home</a></li>
+      <li><a href="leadership.html" class="nav-link">Our Leadership</a></li>
+      <li><a href="about-us.html" class="nav-link">About Us</a></li>
+      <li><a href="events.html" class="nav-link">Opportunities & Events</a></li>
+      <li><a href="open-positions.html" class="nav-link">Join The SCSD</a></li>
+      <li><a href="rem.html#contact" class="nav-link">Contact Us</a></li>
+    </ul>
+
+    <!-- Social Media Links -->
+    <div class="social-media">
+        <ul>
+            <li><a href="https://www.facebook.com/scsdofficial?mibextid=JRoKGi" target="_blank" class="social-icon"><i
+                    class="fab fa-facebook"></i></a></li>
+            <li><a href="https://x.com/scsdglobal" target="_blank" class="social-icon"><i
+                    class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/scsdglobal?igsh=MWt1NWdwdTNkbWsycg==" target="_blank"
+                   class="social-icon"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/scsdofficial/" target="_blank" class="social-icon"><i
+                    class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://youtube.com/@scsdglobal?si=FtrD8aQk1BRfWKng" target="_blank" class="social-icon"><i
+                    class="fab fa-youtube"></i></a></li>
+            <li><a href="https://t.me/scsdofficial" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
+            </li>
+            <li><a href="https://whatsapp.com/channel/0029ValSKPwGE56gYq9icF0y" target="_blank" class="social-icon"><i
+                    class="fab fa-whatsapp"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Main Content Area -->
+<div id="content" class="content">
+    <!-- Header with Logo and Navigation Bar -->
+    <header>
+        <div class="d-flex align-items-center">
+            <button id="toggleSidebar" class="btn btn-link text-white">☰</button> <!-- Sidebar toggle button -->
+            <img src="C:\Users\Abdulrhman Alsir\Desktop\SCSD Website\Assets\Logo1.png" class="logo" alt="Logo">
+            <h2 class="title">SUDANESE CONSORTIUM FOR SURGICAL DEVELOPMENT</h2>
+        </div>
+        <nav>
+            <ul class="navbar navbar-expand-lg navbar-light">
+              <li class="nav-item"><a class="nav-link active" href="main.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="leadership.html">Our Leadership</a></li>
+              <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="events.html">Opportunities & Events</a></li>
+              <li class="nav-item"><a class="nav-link" href="open-positions.html">Join The SCSD</a></li>
+              <li class="nav-item"><a class="nav-link" href="rem.html#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="department-intro" class="section p-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Welcome to the Resources and Excellence Management Department</h2>
+            <h5 class="text-center mb-4">The Resources and Excellence Management Department aims to to ensure efficient management of SCSD’s
+              human and material resources and financials and foster a motivated, high-performing team that supports SCSD’s mission.</h5>
+            <div class="row">
+            </div>
+        </div>
+    </section>
+
+    <section id="strategic-areas" class="section p-5 bg-light">
+      <div class="container">
+          <h2 class="text-center mb-4">Strategic Areas</h2>
+          <div class="row justify-content-center">
+              <!-- Strategic area cards -->
+              <div class="col-md-4 mb-4">
+                  <div class="card-flip">
+                      <div class="card-inner">
+                          <div class="card-front">
+                              <h5 class="card-title text-center">Recruitment and Onboarding</h5>
+                          </div>
+                          <div class="card-back">
+                              <p class="text-center">Ensures efficient recruitment processes and smooth onboarding of new members, fostering
+                                alignment with the organization's goals and values</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="card-flip">
+                      <div class="card-inner">
+                          <div class="card-front">
+                              <h5 class="card-title text-center">SCSD Guidelines</h5>
+                          </div>
+                          <div class="card-back">
+                              <p class="text-center">Develops and implements comprehensive guidelines to standardize operations and ensure
+                                compliance with the organization’s values</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="card-flip">
+                      <div class="card-inner">
+                          <div class="card-front">
+                              <h5 class="card-title text-center">Human and Non-human Resources</h5>
+                          </div>
+                          <div class="card-back">
+                              <p class="text-center">Manages both human resources and essential assets, optimizing their use to support
+                                organizational efficiency and sustainability</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="card-flip">
+                      <div class="card-inner">
+                          <div class="card-front">
+                              <h5 class="card-title text-center">Capacity Building & Team Building</h5>
+                          </div>
+                          <div class="card-back">
+                              <p class="text-center">Focuses on enhancing team skills, collaboration, and morale through targeted training and
+                                team-building initiatives</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <div class="card-flip">
+                      <div class="card-inner">
+                          <div class="card-front">
+                              <h5 class="card-title text-center">Financial Management and Fundraising</h5>
+                          </div>
+                          <div class="card-back">
+                              <p class="text-center">Oversees financial operations and develops strategies for effective fundraising to ensure
+                                resource availability and sustainability</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section id="team" class="section p-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Team</h2>
+        <div class="row">
+            <!-- Director and Deputy Director in the first row -->
+            <div class="col-md-6 mb-4">
+                <div class="profile-box">
+                    <div class="profile-card">
+                        <div class="profile-header jkit-team-img">
+                            <img src="Assets/member1.jpg" alt="Almontaha Mohamed">
+                        </div>
+                        <div class="profile-body">
+                            <h2 class="profile-title">Almontaha Mohamed</h2>
+                        </div>
+                        <div class="profile-footer">
+                            <p class="profile-designation">Department Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="profile-box">
+                    <div class="profile-card">
+                        <div class="profile-header jkit-team-img">
+                            <img src="Assets/member2.jpg" alt="Abdulrahman Sirelkhatim">
+                        </div>
+                        <div class="profile-body">
+                            <h2 class="profile-title">Abdulrahman Sirelkhatim</h2>
+                        </div>
+                        <div class="profile-footer">
+                            <p class="profile-designation">Deputy Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Remaining team members in rows of three -->
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section p-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Projects</h2>
+        <div class="project-card-container">
+            <!-- Project Cards -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image1.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Audit and Compliance Check</h3>
+                        <p class="project-description">Conducts audits and compliance checks based on SCSD guidelines, ensuring adherence to
+                            organizational standards and best practices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image2.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">SCSD Tools and Advisers Management</h3>
+                        <p class="project-description">Manages technical tools and maintains strong connections with advisors, leveraging their
+                            expertise to provide guidance and support when needed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image3.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">SCSD Archive</h3>
+                        <p class="project-description">Establishes and maintains an organized archive of SCSD documents and records, ensuring
+                            easy access and long-term data preservation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image4.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Members Training and Development Program</h3>
+                        <p class="project-description">Provides ongoing training and professional development opportunities for members to
+                            enhance their skills and advance their careers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image5.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Members Evaluation</h3>
+                        <p class="project-description">Implements a structured evaluation process to assess member performance, identify growth
+                            opportunities, and ensure alignment with organizational goals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('Assets/project-image5.jpg');"></div>
+                <div class="project-info">
+                    <div class="project-text">
+                        <h3 class="project-title">Members Team Building Activities</h3>
+                        <p class="project-description">Organizes team-building activities to strengthen relationships, improve collaboration,
+                            and foster a sense of community among members.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="section p-5 bg-light">
+    <h2 class="text-center mb-4">Contact The REM Department</h2>
+    <div class="container">
+        <form action="send_email.php" method="post" class="contact-form">
+            <div class="row">
+                <!-- Name Input -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- Email Input -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Subject Input -->
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input id="subject" name="subject" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Input for Department Email -->
+            <input type="hidden" name="department_email" value="resources.excellence.scsdglobal@gmail.com">
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Include your existing footer content here -->
+<footer class="footer p-4 bg-dark text-white">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Footer Links on the Left -->
+        <div class="footer-links">
+            <ul class="list-unstyled d-flex mb-0">
+                <li><a href="about-us.html" class="text-white mx-2">About Us</a></li>
+                <li><a href="initiatives.html" class="text-white mx-2">Our Initiatives</a></li>
+                <li><a href="#privacy-policy" class="text-white mx-2">Privacy Policy</a></li>
+                <li><a href="#terms-conditions" class="text-white mx-2">Terms and Conditions</a></li>
+                <li><a href="open-positions.html" class="text-white mx-2">Get Involved</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media Icons on the Right -->
+        <div class="social-media">
+            <ul class="list-unstyled d-flex mb-0">
+                <li><a href="https://www.facebook.com/scsdofficial?mibextid=JRoKGi" target="_blank" class="social-icon"><i
+                        class="fab fa-facebook"></i></a></li>
+                <li><a href="https://x.com/scsdglobal" target="_blank" class="social-icon"><i
+                        class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/scsdglobal?igsh=MWt1NWdwdTNkbWsycg==" target="_blank"
+                       class="social-icon"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/scsdofficial/" target="_blank" class="social-icon"><i
+                        class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://youtube.com/@scsdglobal?si=FtrD8aQk1BRfWKng" target="_blank" class="social-icon"><i
+                        class="fab fa-youtube"></i></a></li>
+                <li><a href="https://t.me/scsdofficial" target="_blank" class="social-icon"><i
+                        class="fab fa-telegram"></i></a></li>
+                <li><a href="https://whatsapp.com/channel/0029ValSKPwGE56gYq9icF0y" target="_blank" class="social-icon"><i
+                        class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Copyright Text -->
+    <div class="text-center mt-3">
+        <p class="mb-0">© 2025 Sudanese Consortium for Surgical Development. All rights reserved.</p>
+    </div>
+</footer>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ldWLWgrCRj/xIzpP5e+fMwo6KOBk5KxQzW+xBd2lYGUPtN/f5Bunw8u47HP3bYFX"
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
