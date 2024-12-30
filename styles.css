@@ -674,70 +674,176 @@ h3 {
     background: #008f6b; /* Darker shade on hover */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .leadership-card {
-        width: 100%; /* Full width for cards on mobile */
-        margin-bottom: 20px; /* Space between cards */
+/* Base responsive styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
     }
 
-    .profile-card {
-        height: auto; /* Allow flexible height on smaller screens */
-    }
-
-    .overlay-text {
-        padding-top: 50px; /* Less top padding on smaller screens */
-    }
-
-    .overlay-text h1 {
-        font-size: 2em; /* Adjust font size for smaller screens */
-    }
-
-    .sidebar {
-        width: 100%; /* Full width for sidebar on mobile */
-        height: auto; /* Allow height to adjust */
-        position: relative; /* Change position to relative */
-    }
-
-    .content {
-        margin-left: 0; /* Remove left margin */
-    }
-
-    .navbar {
-        flex-direction: column; /* Stack navbar items vertically */
-    }
-
-    .navbar li {
-        margin: 10px 0; /* Space between navbar items */
-    }
-
-    .social-media {
-        position: relative; /* Ensure it's placed normally in mobile */
-        bottom: unset; /* Remove the fixed position */
-    }
-
-    .mission-card, .about-us-card {
-        margin-bottom: 20px; /* Space between cards on smaller screens */
-    }
-
-    .card {
-        width: 100%; /* Full width for cards on small screens */
-        height: auto; /* Allow flexible height */
-    }
-
-    .card .title {
-        font-size: 1em; /* Adjust font size for smaller screens */
-    }
-
-    .card .text {
-        font-size: 0.8em; /* Adjust font size for description */
+    header .title {
+        font-size: 18px;
     }
 }
 
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+    /* Header adjustments */
+    header {
+        flex-direction: column;
+        padding: 10px 5px;
+    }
+
+    header .logo {
+        max-width: 80px;
+        margin: 5px auto;
+    }
+
+    /* Navigation */
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar li {
+        margin: 5px 0;
+    }
+
+    /* Content sections */
+    .section {
+        padding: 30px 15px;
+    }
+
+    /* Leadership cards */
+    .leadership-profile-box {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .leadership-profile-card {
+        max-width: 100%;
+    }
+
+    /* Department pages */
+    .strategic-area-containter {
+        flex-direction: column;
+    }
+
+    .card-flip {
+        width: 100%;
+        margin: 10px 0;
+        height: auto;
+        min-height: 200px;
+    }
+
+    /* Project cards */
+    .project-card-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .project-card {
+        flex: 0 0 100%;
+        margin: 10px 0;
+    }
+
+    /* About us section */
+    .mission-card, .about-us-card {
+        height: auto;
+        min-height: 250px;
+        margin: 15px 0;
+    }
+
+    /* Team profiles */
+    .profile-box {
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    /* Contact form */
+    .contact-form {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Mobile devices */
 @media (max-width: 480px) {
-    .profile-card {
-        width: 100%; /* Ensure cards use full width */
-        margin-bottom: 20px; /* Space between cards */
+    /* Text scaling */
+    .overlay-text {
+        font-size: 32px;
+        padding: 10px;
+    }
+
+    .overlay-text1 {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    /* Profile elements */
+    .profile-header {
+        height: 250px;
+    }
+
+    .profile-title {
+        font-size: 1.2rem;
+    }
+
+    .profile-designation {
+        font-size: 0.9rem;
+    }
+
+    /* Footer adjustments */
+    .footer {
+        padding: 15px 0;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .social-media ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Department specific */
+    .card-front h5, .card-back p {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Events and initiatives */
+    .event-card, .initiative-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+    .title {
+        font-size: 16px;
+    }
+
+    .overlay-text {
+        font-size: 24px;
+    }
+
+    .overlay-text1 {
+        font-size: 16px;
+    }
+
+    .social-media ul li a {
+        font-size: 14px;
+        padding: 5px;
     }
 }
 
