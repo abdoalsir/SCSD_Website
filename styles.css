@@ -32,9 +32,10 @@ body {
     overflow: hidden;
 }
 
-.section h2, h3{
+.section h2, h3 {
     font-weight: bold;
 }
+
 /* Disappearing Text */
 .disappearing-text {
     opacity: 1;
@@ -132,7 +133,7 @@ header {
     position: relative;
 }
 
-.title{
+.title {
     font-size: 22px;
     padding-right: 30px;
     font-family: 'MyFont';
@@ -175,8 +176,6 @@ header h2 {
     top: 20%; /* Position it towards the upper middle */
 }
 
-/* Add this to your existing CSS */
-
 /* Fade-in effect for text */
 .fade-in {
     opacity: 0;
@@ -202,7 +201,7 @@ header h2 {
     padding: 20px;
     border-radius: 10px;
     margin-top: 10px; /* Space between the two texts */
-    color: white
+    color: white;
 }
 
 .profile-box {
@@ -284,13 +283,13 @@ header h2 {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-  .border-bottom {
+.border-bottom {
     border-bottom: 1px solid #dee2e6; /* Bottom border */
-  }
+}
 
-  .left {
+.left {
     margin-left: -30; /* Reset left margin */
-  }
+}
 
 .about-us-card {
     border: none; /* Remove default border */
@@ -329,7 +328,7 @@ h3 {
 .social-media {
     text-align: center;
     padding: 10px 0; /* Space around the icons */
-    color: white
+    color: white;
 }
 
 .social-media ul {
@@ -513,7 +512,6 @@ h3 {
     line-height: 1.4; /* Increases readability for wrapped text */
 }
 
-
 .profile-footer {
     padding: 15px;
     border-top: 1px solid #eee;
@@ -625,41 +623,41 @@ h3 {
     background: #fff;
     padding: 1em; /* Increased padding */
     border-radius: 10px; /* Rounded corners */
-  }
+}
 
-  .card .image {
+.card .image {
     background: rgb(241, 241, 241);
     width: 100%;
     height: 60%; /* Adjusted height for image */
     display: grid;
     place-items: center;
     border-radius: 10px; /* Rounded corners for image */
-  }
+}
 
-  .card img {
+.card img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover; /* Maintain aspect ratio */
     border-radius: 10px; /* Rounded corners for image */
-  }
+}
 
-  .card .title {
+.card .title {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em; /* Increased font size */
     font-weight: 600; /* Bold title */
     color: #333; /* Darker color for better readability */
     margin: 0.5em 0; /* Margin for spacing */
-  }
+}
 
-  .card .text {
+.card .text {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9em; /* Font size for description */
     color: #666; /* Lighter color for description */
     text-align: center; /* Centered text */
     margin-bottom: 1em; /* Margin for spacing */
-  }
+}
 
-  .apply-button {
+.apply-button {
     display: block;
     text-align: center;
     background: #00AC7C;
@@ -668,49 +666,76 @@ h3 {
     text-decoration: none;
     border-radius: 5px; /* Rounded corners for button */
     transition: all 150ms;
-  }
+}
 
-  .card:hover .apply-button {
+.card:hover .apply-button {
     background: #008f6b; /* Darker shade on hover */
-  }
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .mission-card, .about-us-card {
         margin-bottom: 20px; /* Space between cards on smaller screens */
     }
-}
 
-/* Responsive Design for Sidebar */
-@media (max-width: 768px) {
+    .leadership-card {
+        width: 100%; /* Full width for cards on mobile */
+        margin-bottom: 20px; /* Space between cards */
+    }
+
+    .profile-card {
+        height: auto; /* Allow flexible height on smaller screens */
+    }
+
+    .overlay-text {
+        padding-top: 50px; /* Less top padding on smaller screens */
+    }
+
+    .overlay-text h1 {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+        width: 100%; /* Full width for sidebar on mobile */
+        height: auto; /* Allow height to adjust */
+        position: relative; /* Change position to relative */
     }
 
     .content {
-        margin-left: 0;
+        margin-left: 0; /* Remove left margin */
     }
 
     .navbar {
-        flex-direction: column;
+        flex-direction: column; /* Stack navbar items vertically */
     }
 
     .navbar li {
-        margin: 10px 0;
+        margin: 10px 0; /* Space between navbar items */
     }
 
     .social-media {
         position: relative; /* Ensure it's placed normally in mobile */
-        bottom: unset;  /* Remove the fixed position */
+        bottom: unset; /* Remove the fixed position */
     }
 }
 
-/* Ensure the content doesn't overflow */
-@media (min-width: 769px) {
-    .main {
-        overflow-y: auto; /* Allow scrolling when content overflows */
+@media (max-width: 480px) {
+    .profile-card {
+        width: 100%; /* Ensure cards use full width */
+        margin-bottom: 20px; /* Space between cards */
+    }
+
+    .card {
+        width: 100%; /* Full width for cards on small screens */
+        height: auto; /* Allow flexible height */
+    }
+
+    .card .title {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+
+    .card .text {
+        font-size: 0.8em; /* Adjust font size for description */
     }
 }
 
@@ -719,68 +744,4 @@ h3 {
     src: url('Fonts/Copperplate.otf') format('truetype'); /* Adjust format as needed */
     font-weight: lighter;
     font-style: normal;
-  }
-
-@media (max-width: 768px) {
-    .overlay-text {
-        padding-top: 50px;  /* Less top padding on smaller screens */
-    }
-    .overlay-text h1 {
-        font-size: 2em;
-    }
 }
-
-@media (max-width: 768px) {
-    .profile-card {
-        height: auto; /* Allow flexible height on smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-card {
-        width: 100%; /* Ensure cards use full width */
-        margin-bottom: 20px;
-    }
-}
-
-/* Mobile Phones (max-width: 480px) */
-@media (max-width: 480px) {
-    .sidebar {
-        width: 100%; /* Make the sidebar full-width */
-        height: auto; /* Allow dynamic height */
-        position: relative; /* No fixed positioning */
-    }
-    .navbar {
-        flex-direction: column; /* Stack navbar items vertically */
-    }
-    .card {
-        width: 90%; /* Adjust card width to fit smaller screens */
-        margin: 10px auto; /* Center cards with some spacing */
-    }
-    .overlay-text {
-        font-size: 1.5rem; /* Reduce font size */
-    }
-    .profile-card {
-        flex-direction: column; /* Stack content vertically */
-        width: 100%; /* Full width */
-        margin-bottom: 20px;
-    }
-}
-
-/* Tablets (max-width: 768px) */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 80%; /* Make the sidebar slightly narrower */
-    }
-    .navbar li {
-        margin: 10px 0; /* Increase spacing for navbar items */
-    }
-    .card {
-        width: 80%; /* Adjust card width */
-    }
-    .profile-card {
-        height: auto; /* Allow dynamic height */
-    }
-}
-
-
