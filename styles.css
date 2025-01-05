@@ -1,4 +1,27 @@
-/* Reset CSS */
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  .profile-card {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 1.2rem;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+}/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -270,7 +293,6 @@ header h2 {
 }
 
 .btn {
-    background-color: #007bff; /* Button color */
     color: white; /* Button text color */
     padding: 0.5rem 1rem; /* Button padding */
     border: none; /* Remove border */
@@ -854,3 +876,114 @@ h3 {
     font-weight: lighter;
     font-style: normal;
 }
+
+.activities-slideshow {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+.dots-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #0A71B6;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+    .content {
+      margin-left: 0;
+    }
+    .sidebar {
+      transform: translateX(-100%);
+    }
+    .sidebar.active {
+      transform: translateX(0);
+    }
+    .profile-card {
+      margin: 10px 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .title {
+      font-size: 1.2rem;
+    }
+    .nav-link {
+      padding: 5px;
+    }
+  }
+
+/* Project Card Container for small devices */
+@media (max-width: 768px) {
+    .project-card-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .project-card {
+      width: 90%;
+      max-width: none;
+      flex: none;
+    }
+
+    .project-card:hover {
+      flex: none;
+      width: 90%;
+    }
+
+    .project-info {
+      padding: 15px;
+      color: white;
+    }
+
+    .project-text {
+      width: 100%;
+      text-align: center;
+    }
+  }

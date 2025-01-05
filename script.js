@@ -66,6 +66,40 @@ function addEvent(title, description, link, imageUrl) {
   eventCards.appendChild(newCard);
 }
 
+// Example function to add an event with an image
+function addEvent(title, description, link, imageUrl) {
+  const eventMessage = document.getElementById('eventMessage');
+  const eventCards = document.getElementById('eventCards');
+
+  // Hide the message and show the event cards
+  eventMessage.style.display = 'none';
+  eventCards.style.display = 'block';
+
+  // Check if the event card already exists
+  const existingCards = eventCards.getElementsByClassName('card-title');
+  for (let i = 0; i < existingCards.length; i++) {
+    if (existingCards[i].innerText === title) {
+      console.log('Event already exists.');
+      return; // Exit the function if the event already exists
+    }
+  }
+
+  // Create a new event card
+  const newCard = document.createElement('div');
+  newCard.className = 'col-md-6 mb-4';
+  newCard.innerHTML = `
+    <div class="card text-center">
+      <img src="${imageUrl}" class="card-img-top" alt="Event Image"> <!-- Add the image here -->
+      <div class="card-body">
+        <h5 class="card-title">${title}</h5>
+        <p class="card-text">${description}</p>
+        <a href="${link}" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+  `;
+  eventCards.appendChild(newCard);
+}
+
 // Reveal on scroll
 window.addEventListener('scroll', reveal);
 
@@ -105,25 +139,16 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// List of vacancies (this will be dynamically added)
-// Initial vacancies array (empty at the moment, future vacancies will go here)
-// Array to hold vacancy data
-let vacancies = [];
+const vacancies = [
+  { title: "Position 1", description: "Description for position 1", link: "application_form_1.html", image: "path_to_image_1.jpg" },
+  { title: "Position 2", description: "Description for position 2", link: "application_form_2.html", image: "path_to_image_2.jpg" }
+];
 
-// Function to update the UI with vacancy cards
 function displayVacancyCards() {
   const vacancyCardsContainer = document.getElementById('vacancy-cards');
-  const noVacanciesMessage = document.getElementById('no-vacancies-message');
+  vacancyCardsContainer.innerHTML = ''; // Clear existing cards
 
-  // Clear the container before adding new cards
-  vacancyCardsContainer.innerHTML = '';
-
-  // Check if there are vacancies
   if (vacancies.length > 0) {
-    // Hide the "No Vacancies" message
-    noVacanciesMessage.style.display = 'none';
-
-    // Create a card for each vacancy
     vacancies.forEach(vacancy => {
       const card = document.createElement('div');
       card.className = 'card m-2';
@@ -137,112 +162,77 @@ function displayVacancyCards() {
       `;
       vacancyCardsContainer.appendChild(card);
     });
-  } else {
-    // If no vacancies, show the "No Vacancies" message
-    noVacanciesMessage.style.display = 'block';
   }
 }
 
-// Function to add a new vacancy
-function addVacancy(title, description, link, imageUrl) {
-  const newVacancy = {
-    title: title,
-    description: description,
-    link: link,
-    image: imageUrl
-  };
+class ActivitySlideshow {
+  constructor(container, activities) {
+      this.container = container;
+      this.activities = activities;
+      this.currentSlide = 0;
+      this.slidesContainer = container.querySelector('.slides');
+      this.dotsContainer = container.querySelector('.dots-container');
 
-  // Add the new vacancy to the vacancies array
-  vacancies.push(newVacancy);
+      this.init();
+      this.showSlide(0);
 
-  // Update the display
-  displayVacancyCards();
+      container.querySelector('.prev').addEventListener('click', () => this.changeSlide(-1));
+      container.querySelector('.next').addEventListener('click', () => this.changeSlide(1));
+  }
+
+  init() {
+      this.activities.forEach((activity, index) => {
+          const slide = document.createElement('div');
+          slide.className = 'slide';
+          slide.innerHTML = `
+              <img src="${activity.image}" alt="${activity.title}">
+              <h3>${activity.title}</h3>
+              <p>${activity.description}</p>
+          `;
+          this.slidesContainer.appendChild(slide);
+
+          const dot = document.createElement('span');
+          dot.className = 'dot';
+          dot.addEventListener('click', () => this.showSlide(index));
+          this.dotsContainer.appendChild(dot);
+      });
+  }
+
+  showSlide(n) {
+      this.currentSlide = n;
+      const slides = this.slidesContainer.children;
+      const dots = this.dotsContainer.children;
+
+      Array.from(slides).forEach((slide, index) => {
+          slide.style.display = index === n ? 'block' : 'none';
+      });
+
+      Array.from(dots).forEach((dot, index) => {
+          dot.classList.toggle('active', index === n);
+      });
+  }
+
+  changeSlide(direction) {
+      let newSlide = this.currentSlide + direction;
+      if (newSlide >= this.activities.length) newSlide = 0;
+      if (newSlide < 0) newSlide = this.activities.length - 1;
+      this.showSlide(newSlide);
+  }
 }
 
-// Event listener for the form submission
-document.getElementById('vacancy-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form from refreshing the page
+// Initialize slideshow with activities data
+const activitiesData = [
+  {
+      title: 'Activity 1',
+      description: 'Description of activity 1',
+      image: 'path/to/image1.jpg'
+  },
+  // Add more activities as needed
+];
 
-  // Get form data
-  const title = document.getElementById('vacancy-title').value;
-  const description = document.getElementById('vacancy-description').value;
-  const link = document.getElementById('vacancy-link').value;
-  const imageUrl = document.getElementById('vacancy-image').value;
-
-  // Call the function to add the vacancy
-  addVacancy(title, description, link, imageUrl);
-
-  // Reset the form fields after submission
-  document.getElementById('vacancy-form').reset();
+document.addEventListener('DOMContentLoaded', () => {
+  const slideshowContainer = document.querySelector('.activities-slideshow');
+  if (slideshowContainer) {
+      new ActivitySlideshow(slideshowContainer, activitiesData);
+  }
 });
-
-// Initialize the display on page load
-window.onload = displayVacancyCards;
-
-// JavaScript to manage events
-const currentEvents = []; // Array to hold current events
-const upcomingEvents = []; // Array to hold upcoming events
-
-// Function to render current events
-function renderCurrentEvents() {
-    const currentEventsContainer = document.getElementById('current-events');
-    const noCurrentEventsMessage = document.getElementById('no-current-events');
-
-    currentEventsContainer.innerHTML = ''; // Clear existing content
-
-    if (currentEvents.length === 0) {
-        noCurrentEventsMessage.style.display = 'block'; // Show no events message
-    } else {
-        noCurrentEventsMessage.style.display = 'none'; // Hide no events message
-        currentEvents.forEach(event => {
-            const eventCard = `
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${event.name}</h5>
-                            <p class="card-text">Location: ${event.location}</p>
-                            <p class="card-text">Date: ${event.date}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-            currentEventsContainer.innerHTML += eventCard; // Add event card to container
-        });
-    }
-}
-
-// Function to render upcoming events
-function renderUpcomingEvents() {
-    const upcomingEventsContainer = document.getElementById('upcoming-events');
-    const noUpcomingEventsMessage = document.getElementById('no-upcoming-events');
-
-    upcomingEventsContainer.innerHTML = ''; // Clear existing content
-
-    if (upcomingEvents.length === 0) {
-        noUpcomingEventsMessage.style.display = 'block'; // Show no upcoming events message
-    } else {
-        noUpcomingEventsMessage.style.display = 'none'; // Hide no upcoming events message
-        upcomingEvents.forEach(event => {
-            const eventCard = `
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${event.name}</h5>
-                            <p class="card-text">Location: ${event.location}</p>
-                            <p class="card-text">Date: ${event.date}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-            upcomingEventsContainer.innerHTML += eventCard; // Add event card to container
-        });
-    }
-}
-
-// Example of adding events (you can replace this with actual data)
-currentEvents.push({ name: 'Current Event 1', location: 'Location 1', date: '2025-01-01' });
-upcomingEvents.push({ name: 'Upcoming Event 1', location: 'Location 2', date: '2025-02-01' });
-
-// Render events on page load
-renderCurrentEvents();
-renderUpcomingEvents();
